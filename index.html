@@ -5,15 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>My Portfolio</h1>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Aadil Mo</h1>
+            <p class="hero-subtitle">Aspiring Web Developer | Problem Solver</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+        </div>
+        <div class="hero-background"></div>
+    </header>
 
-    <div class="project">
-        <h2>Test Project 1</h2>
-        <p>A brief description of your first project. You can add details about the technologies used, the purpose of the project, or any interesting features.</p>
-        <a href="https://aadil-mo.github.io/test1/" target="_blank">View Project</a>
-    </div>
+    <section id="projects" class="fade-in">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project project-card">
+                <h3>E-commerce Product Page</h3>
+                <p>Developed a responsive product page for an e-commerce website, focusing on user experience and clear presentation of information. Utilized HTML, CSS, and JavaScript for interactive elements like image galleries and product options.</p>
+                <a href="https://aadil-mo.github.io/test1/" target="_blank">View Project</a>
+            </div>
 
-    </body>
+            <div class="project project-card">
+                <h3>Simple Blog Layout</h3>
+                <p>Designed and built a clean and functional blog layout, emphasizing readability and easy navigation. Implemented features like article previews and category filtering using HTML, CSS, and JavaScript.</p>
+                <a href="https://aadil-mo.github.io/test2/" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Aadil Mo</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
