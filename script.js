@@ -1,20 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Fade-in animation for the projects section
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-        projectsSection.classList.add('fade-in');
+    // Fade-in animation for all sections
+    const fadeIns = document.querySelectorAll('.fade-in');
+    fadeIns.forEach(fadeIn => {
+        fadeIn.classList.add('fade-in');
+    });
+
+    // Project category tab functionality
+    const categoryButtons = document.querySelectorAll('.category-button');
+    const projectGrids = document.querySelectorAll('.projects-grid');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+
+            // Deactivate all buttons and hide all grids
+            categoryButtons.forEach(btn => btn.classList.remove('active'));
+            projectGrids.forEach(grid => grid.style.display = 'none';
+
+            // Activate the clicked button and show the corresponding grid
+            button.classList.add('active');
+            const activeGrid = document.querySelector(`.projects-grid[data-category="${category}"]`);
+            if (activeGrid) {
+                activeGrid.style.display = 'grid'; // Or 'flex' if you change the grid to flex
+            }
+        });
+    });
+
+    // Show the initial category (HTML & CSS)
+    const initialButton = document.querySelector('.category-button[data-category="html-css"]');
+    if (initialButton) {
+        initialButton.click();
     }
 
-    // Simple hover effect for project cards (already in CSS, but can be done here too)
-    // const projectCards = document.querySelectorAll('.project-card');
-    // projectCards.forEach(card => {
-    //     card.addEventListener('mouseover', () => {
-    //         card.style.transform = 'translateY(-8px)';
-    //         card.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.4)';
-    //     });
-    //     card.addEventListener('mouseout', () => {
-    //         card.style.transform = 'translateY(0)';
-    //         card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
-    //     });
-    // });
+    // Smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.main-nav a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 });
