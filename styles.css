@@ -1,14 +1,15 @@
+/* Global Styles */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #f0f0f0;
+    background-color: #121212; /* Dark background color */
+    color: #f0f0f0; /* Light text color */
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
-/* Hero Section */
+/* Hero Section Styles */
 .hero {
     position: relative;
     display: flex;
@@ -42,9 +43,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #ff6b6b, #498afb, #fec84b, #38ef7d);
+    background: linear-gradient(45deg, #ff6b6b, #498afb, #fec84b, #38ef7d); /* Gradient background */
     background-size: 400% 400%;
-    animation: gradientAnimation 15s infinite alternate;
+    animation: gradientAnimation 15s infinite alternate; /* Animated gradient */
     opacity: 0.8;
 }
 
@@ -54,11 +55,11 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Projects Section */
+/* Projects Section Styles */
 #projects {
     padding: 4rem 2rem;
     text-align: center;
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Dark background for projects */
 }
 
 #projects h2 {
@@ -69,7 +70,8 @@ body {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    /* Updated grid-template-columns to better handle the increased number of projects */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     max-width: 1200px;
     margin: 2rem auto;
@@ -90,7 +92,7 @@ body {
 }
 
 .project-card h3 {
-    color: #61dafb;
+    color: #61dafb; /* Accent color for project titles */
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.8rem;
@@ -104,7 +106,7 @@ body {
 .project-card a {
     display: inline-block;
     padding: 1rem 1.75rem;
-    background-color: #61dafb;
+    background-color: #61dafb; /* Accent color for view button */
     color: #222;
     text-decoration: none;
     border-radius: 6px;
@@ -117,7 +119,7 @@ body {
     color: #fff;
 }
 
-/* Footer */
+/* Footer Styles */
 footer {
     background-color: #222;
     color: #f0f0f0;
@@ -137,7 +139,7 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Social Links */
+/* Social Links Styles */
 .social-links {
     margin-top: 1.5rem;
 }
@@ -153,22 +155,11 @@ footer {
     color: #61dafb;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    .projects-grid {
-        padding: 0;
-    }
-}
+/* Specific styling for the email link */
 .social-links a.email-link {
     display: inline-block;
     padding: 0.75rem 1.25rem;
-    background-color: #d44638; /* A shade of red, commonly associated with Gmail */
+    background-color: #d44638; /* Red color for Gmail association */
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
@@ -183,4 +174,19 @@ footer {
 
 .social-links a.email-link i {
     margin-right: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    .projects-grid {
+        /* Adjusted grid for smaller screens to stack cards */
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
 }
