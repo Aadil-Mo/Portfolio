@@ -154,3 +154,335 @@ body.light-theme .main-nav a {
 .main-nav a:hover,
 .main-nav a.active {
     color: var(--accent-color-dark);
+    border-bottom-color: var(--accent-color-dark); /* Show underline */
+}
+body.light-theme .main-nav a:hover,
+body.light-theme .main-nav a.active {
+    color: var(--accent-color-light);
+     border-bottom-color: var(--accent-color-light);
+}
+
+/* --- Section Styling --- */
+/* General styles for content sections */
+section {
+    padding: 5rem 2rem;
+    border-bottom: 1px solid var(--border-color-dark); /* Separator line */
+    transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
+}
+body.light-theme section {
+    border-bottom-color: var(--border-color-light);
+}
+
+/* Specific background colors per section */
+#welcome { background-color: var(--primary-bg-dark); } /* Added welcome section style */
+#projects { background-color: var(--primary-bg-dark); }
+#about { background-color: var(--secondary-bg-dark); }
+#contact { background-color: var(--primary-bg-dark); border-bottom: none; } /* No border on last section */
+
+body.light-theme #welcome { background-color: var(--primary-bg-light); }
+body.light-theme #projects { background-color: var(--primary-bg-light); }
+body.light-theme #about { background-color: var(--secondary-bg-light); }
+body.light-theme #contact { background-color: var(--primary-bg-light); }
+
+
+/* Styling for section headings (H2) */
+section h2 {
+    /* ... font size, alignment ... */
+    position: relative; /* Needed for the underline pseudo-element */
+    padding-bottom: 0.5rem;
+}
+/* Added an animated underline effect below section titles */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color-dark);
+    transition: background-color 0.3s ease;
+}
+body.light-theme section h2::after {
+    background-color: var(--accent-color-light);
+}
+
+
+/* --- Projects Section Styles --- */
+/* Styles for the category filter buttons */
+.project-categories { /* ... */ }
+.category-button { /* ... Base button styles ... */ }
+.category-button.active { /* ... Active filter button style ... */ }
+.category-button:not(.active):hover { /* ... Hover for non-active filter buttons ... */ }
+
+/* Styles for the grid containing project cards */
+.projects-grid {
+    display: grid; /* Using CSS Grid for layout */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 2.5rem;
+    /* ... other layout styles ... */
+}
+
+/* Styles for individual project cards */
+.project-card {
+    background-color: var(--card-bg-dark);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
+    overflow: hidden; /* Keep image corners rounded */
+    display: flex; /* Use flexbox for vertical layout */
+    flex-direction: column;
+}
+body.light-theme .project-card {
+    background-color: var(--card-bg-light);
+}
+.project-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 10px 20px var(--shadow-hover-color);
+}
+
+/* Style for the actual project image (when I add it) */
+.project-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Ensures image covers the area well */
+    display: block;
+}
+/* Style for the placeholder div */
+.project-image-placeholder {
+    height: 180px;
+    background-color: #444; /* Placeholder color */
+    /* ... centering styles ... */
+    transition: background-color 0.3s ease;
+}
+body.light-theme .project-image-placeholder {
+     background-color: #e0e0e0; /* Lighter placeholder in light mode */
+     color: #777;
+}
+
+/* Style for the content area below the image */
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allows this section to grow and push button down */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card h3 { /* ... */ }
+.project-card p { /* ... */ flex-grow: 1; /* Pushes button down */ } /* Use text muted color */
+.project-card a { /* ... Styling for 'View Project' button ... */ }
+
+
+/* --- About Section Styles --- */
+/* Layout for the content within the About section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left; /* Overriding centered section text */
+}
+.about-content h3 { /* Styling for subheadings like Skills */
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-dark);
+    padding-bottom: 0.5rem;
+    transition: border-bottom-color 0.3s ease;
+}
+body.light-theme .about-content h3 {
+    border-bottom-color: var(--border-color-light);
+}
+
+/* Styling for the skills list */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Arrange skills horizontally */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 0.8rem;
+}
+.skills-list li {
+    background-color: var(--card-bg-dark); /* Use card background for pills */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+body.light-theme .skills-list li {
+    background-color: #e0e0e0; /* Lighter pills in light mode */
+}
+
+/* --- Contact Section Styles --- */
+/* Added styles for the new contact methods layout */
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 900px;
+    margin: 3rem auto 0 auto;
+    text-align: center;
+}
+.contact-option {
+    background-color: var(--card-bg-dark);
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+body.light-theme .contact-option {
+    background-color: var(--card-bg-light);
+}
+.contact-option h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.contact-icon {
+    font-size: 2rem;
+    color: var(--accent-color-dark);
+    margin-bottom: 1rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+body.light-theme .contact-icon {
+    color: var(--accent-color-light);
+}
+.contact-option p {
+    color: var(--text-muted-dark);
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+body.light-theme .contact-option p {
+    color: var(--text-muted-light);
+}
+.contact-link-button { /* Styling for links within contact options */
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--accent-color-dark);
+    color: var(--primary-bg-dark);
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+body.light-theme .contact-link-button {
+     background-color: var(--accent-color-light);
+     color: var(--primary-bg-light);
+}
+.contact-link-button:hover {
+    background-color: var(--accent-hover-dark);
+    color: #ffffff;
+}
+body.light-theme .contact-link-button:hover {
+     background-color: var(--accent-hover-light);
+     color: #ffffff;
+}
+
+/* Optional: Basic styles if I uncomment the contact form */
+.contact-form-container { max-width: 600px; margin: 3rem auto 0 auto; text-align: left; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color-dark);
+    border-radius: 4px;
+    background-color: var(--secondary-bg-dark);
+    color: var(--text-color-dark);
+    font-family: inherit;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+body.light-theme .form-group input, body.light-theme .form-group textarea {
+    border-color: var(--border-color-light);
+    background-color: var(--secondary-bg-light);
+    color: var(--text-color-light);
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color-dark); }
+body.light-theme .form-group input:focus, body.light-theme .form-group textarea:focus { border-color: var(--accent-color-light); }
+
+
+/* --- Footer Styles --- */
+/* Styles for the consistent footer */
+.main-footer {
+    background-color: var(--secondary-bg-dark);
+    color: var(--text-muted-dark);
+    /* ... other footer styles ... */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+body.light-theme .main-footer {
+    background-color: var(--secondary-bg-light);
+    color: var(--text-muted-light);
+}
+
+/* --- Back to Top Button --- */
+/* Styles for the button that appears on scroll */
+.back-to-top {
+    position: fixed; /* Stays in view */
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color-dark);
+    color: var(--primary-bg-dark); /* Dark icon on light button */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex; /* Center icon */
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    opacity: 0; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
+    /* Smooth transition for appearing/disappearing */
+    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.3s ease, transform 0.2s ease;
+    z-index: 999;
+}
+/* Style for light mode */
+body.light-theme .back-to-top {
+     background-color: var(--accent-color-light);
+     color: var(--primary-bg-light);
+}
+/* Class added by JS when button should be visible */
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.back-to-top:hover {
+    background-color: var(--accent-hover-dark);
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+body.light-theme .back-to-top:hover {
+     background-color: var(--accent-hover-light);
+}
+
+/* --- Optional Fade-in Animation --- */
+/* Initial state for elements I want to fade in on scroll */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+/* State when element becomes visible (class added by JS observer) */
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Adjustments --- */
+/* Media queries to adjust layout for smaller screens */
+@media (max-width: 768px) {
+    /* Adjustments for tablet size */
+    /* ... Hero text sizes, section padding, project grid columns ... */
+    .main-nav ul {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .main-nav li { margin: 0; } /* Remove horizontal margin */
+    .contact-methods { grid-template-columns: 1fr; } /* Stack contact options */
+    .theme-toggle { /* Make buttons slightly smaller */ width: 40px; height: 40px; /* ... */ }
+    .back-to-top { /* Make buttons slightly smaller */ width: 40px; height: 40px; /* ... */ }
+}
+
+@media (max-width: 480px) {
+    /* Adjustments for smaller mobile phones */
+    /* ... Hero text sizes, padding, button sizes ... */
+}
