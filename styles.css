@@ -1,488 +1,272 @@
-/* Global Styles & Variables */
-/* Defined CSS variables for colors to make theming easier */
+/* =========================================
+   Portfolio Stylesheet for Aadil Mohamed
+   Design: Vibrant Dark Theme w/ Gradient BG
+   ========================================= */
+
+/* === GLOBAL STYLES & NEW VIBRANT PALETTE === */
 :root {
-    /* Dark Theme Colors (Default) */
-    --primary-bg-dark: #121212;
-    --secondary-bg-dark: #1a1a1a;
-    --card-bg-dark: #2a2a2a;
-    --text-color-dark: #e0e0e0;
-    --text-muted-dark: #bdbdbd;
-    --accent-color-dark: #4db6ac; /* Teal accent */
-    --accent-hover-dark: #3a9d91;
-    --heading-color-dark: #4db6ac;
-    --border-color-dark: #333;
+    /* --- Dark Theme Palette (DEFAULT) --- */
+    --primary-bg-dark: #1a1a2e;       /* Deep Indigo/Purple */
+    --secondary-bg-dark: #1f1f38;     /* Slightly Lighter Shade for Sections */
+    --card-bg-dark: #2a2a4a;          /* Card Background */
+    --text-color-dark: #f0f0f0;       /* Bright Off-White */
+    --text-muted-dark: #a0a0c0;       /* Muted Lavender/Grey */
+    --accent-1-dark: #00ffff;         /* Electric Cyan */
+    --accent-1-hover-dark: #00e6e6;   /* Slightly Darker Cyan */
+    --accent-2-dark: #ff00ff;         /* Magenta (Use sparingly) */
+    --heading-color-dark: #ffffff;    /* Pure White Headings */
+    --border-color-dark: #4a4a6a;      /* Subtle Border */
 
-    /* Light Theme Colors (Applied when .light-theme class is on body) */
-    --primary-bg-light: #f4f4f4;
-    --secondary-bg-light: #ffffff;
-    --card-bg-light: #ffffff;
-    --text-color-light: #333333;
-    --text-muted-light: #555555;
-    --accent-color-light: #00796b; /* Darker Teal for contrast on light bg */
-    --accent-hover-light: #004d40;
-    --heading-color-light: #00796b;
-    --border-color-light: #dddddd;
+    /* --- Light Theme Palette (Toggled) --- */
+    --primary-bg-light: #f5f7fa;      /* Very Light Blue/Grey */
+    --secondary-bg-light: #ffffff;    /* White Sections/Cards */
+    --card-bg-light: #ffffff;         /* White Cards */
+    --text-color-light: #212529;      /* Dark Text */
+    --text-muted-light: #6c757d;      /* Muted Grey */
+    --accent-1-light: #007bff;         /* Standard Blue */
+    --accent-1-hover-light: #0056b3;   /* Darker Blue */
+    --accent-2-light: #dc3545;        /* Red (as secondary accent) */
+    --heading-color-light: #000000;   /* Black Headings */
+    --border-color-light: #dee2e6;     /* Light Border */
 
-    /* Shared variables */
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --shadow-hover-color: rgba(0, 0, 0, 0.4);
+    /* --- Shadows & Transitions --- */
+    --shadow-dark-color: rgba(0, 0, 0, 0.3);
+    --shadow-dark-hover-color: rgba(0, 0, 0, 0.4);
+    --shadow-light-color: rgba(0, 0, 0, 0.08);
+    --shadow-light-hover-color: rgba(0, 0, 0, 0.12);
+    --transition-speed: 0.3s;
+
+    /* Assign default vars (Dark theme) */
+    --primary-bg: var(--primary-bg-dark);
+    --secondary-bg: var(--secondary-bg-dark);
+    --card-bg: var(--card-bg-dark);
+    --text-color: var(--text-color-dark);
+    --text-muted: var(--text-muted-dark);
+    --accent-1: var(--accent-1-dark);
+    --accent-1-hover: var(--accent-1-hover-dark);
+    --accent-2: var(--accent-2-dark);
+    --heading-color: var(--heading-color-dark);
+    --border-color: var(--border-color-dark);
+    --shadow-color: var(--shadow-dark-color);
+    --shadow-hover-color: var(--shadow-dark-hover-color);
+}
+
+/* Apply Light theme variables when .light-theme class is present */
+body.light-theme {
+    --primary-bg: var(--primary-bg-light);
+    --secondary-bg: var(--secondary-bg-light);
+    --card-bg: var(--card-bg-light);
+    --text-color: var(--text-color-light);
+    --text-muted: var(--text-muted-light);
+    --accent-1: var(--accent-1-light);
+    --accent-1-hover: var(--accent-1-hover-light);
+    --accent-2: var(--accent-2-light);
+    --heading-color: var(--heading-color-light);
+    --border-color: var(--border-color-light);
+    --shadow-color: var(--shadow-light-color);
+    --shadow-hover-color: var(--shadow-light-hover-color);
 }
 
 /* Basic body setup */
 body {
-    font-family: 'Montserrat', sans-serif; /* My chosen font */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--primary-bg-dark); /* Use CSS variable */
-    color: var(--text-color-dark); /* Use CSS variable */
-    line-height: 1.6;
+    color: var(--text-color);
+    font-size: 16px;
+    line-height: 1.7;
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    transition: color var(--transition-speed) ease;
 }
 
-/* --- Light Theme Styles --- */
-/* These styles override the defaults when the body has the 'light-theme' class (added by JS) */
-body.light-theme {
-    background-color: var(--primary-bg-light);
-    color: var(--text-color-light);
-    /* Adjust shadow intensity for light mode */
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --shadow-hover-color: rgba(0, 0, 0, 0.15);
+/* Animated Gradient Background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(-45deg, #4e54c8, #8f94fb, #00dbde, #fc00ff);
+    background-size: 400% 400%;
+    animation: gradientAnimation 25s ease infinite;
+    z-index: -1;
+    transition: opacity var(--transition-speed) ease;
+    opacity: 0.6; /* Dark mode opacity */
+}
+body.light-theme::before {
+    background: linear-gradient(-45deg, #e0c3fc, #8ec5fc, #e0f7fa, #fce1e4);
+    opacity: 0.4; /* Light mode opacity */
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Update base element colors for light theme */
-body.light-theme h1, body.light-theme h2, body.light-theme h3 { color: var(--heading-color-light); }
-body.light-theme a { color: var(--accent-color-light); }
-body.light-theme a:hover { color: var(--accent-hover-light); }
+*, *:before, *:after { box-sizing: inherit; }
 
-/* --- Theme Toggle Button --- */
-/* Styling for the button itself */
-.theme-toggle {
-    position: fixed; /* Keep it in view */
-    top: 20px;
-    right: 20px;
-    background-color: var(--card-bg-dark);
-    color: var(--text-color-dark);
-    border: 1px solid var(--border-color-dark);
-    border-radius: 50%; /* Make it circular */
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    z-index: 1001; /* Ensure it's above the nav */
-    display: flex; /* Center the icon inside */
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-}
-/* Theme toggle appearance in light mode */
-body.light-theme .theme-toggle {
-    background-color: var(--card-bg-light);
-    color: var(--text-color-light);
-    border: 1px solid var(--border-color-light);
-}
-.theme-toggle:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-}
+/* General Elements Styling */
+h1, h2, h3, h4, h5, h6 { color: var(--heading-color); transition: color var(--transition-speed) ease; margin-top: 0; margin-bottom: 1rem; font-weight: 600; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.4rem; margin-bottom: 2.5rem; } /* Section Headings */
+h3 { font-size: 1.7rem; margin-bottom: 1rem; }
 
-/* --- Hero Section --- */
-/* Styles for the main hero area */
-.hero {
-    /* ... existing hero styles ... */
-    background-color: var(--secondary-bg-dark); /* Use CSS var */
-    transition: background-color 0.3s ease;
-}
-body.light-theme .hero {
-    background-color: var(--secondary-bg-light);
-}
+p { margin-bottom: 1.25rem; color: var(--text-color); transition: color var(--transition-speed) ease;}
+p.muted { color: var(--text-muted); font-size: 0.95rem; }
 
-/* Styles for the animated background gradient */
-.hero-background {
-    /* ... existing gradient and animation styles ... */
-    opacity: 0.6; /* Control gradient visibility */
-}
-body.light-theme .hero-background {
-    opacity: 0.4; /* Made it subtler in light mode */
-}
+a { color: var(--accent-1); text-decoration: none; transition: color var(--transition-speed) ease; }
+a:hover { color: var(--accent-1-hover); text-decoration: none; }
 
-/* Styles for the content box within the hero */
-.hero-content {
-    /* ... existing layout styles ... */
-    background-color: rgba(24, 24, 24, 0.7); /* Semi-transparent dark overlay */
-    box-shadow: 0 4px 15px var(--shadow-color); /* Use shadow var */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-body.light-theme .hero-content {
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent light overlay */
-}
+/* Utility class for max-width container */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 15px; }
 
-/* Styles for buttons and social links within the hero */
-.contact-links { /* ... */ }
-.contact-button { /* ... Base button styles ... */ }
-.contact-button.email { /* ... Specific color ... */ }
-.contact-button.phone { /* ... Specific color ... */ }
-.contact-button.cv { background-color: var(--accent-color-dark); } /* Use accent var */
-body.light-theme .contact-button.cv { background-color: var(--accent-color-light); color: #fff;} /* Adjust for light theme */
-
-.social-links-hero { /* ... */ }
-.social-links-hero a { /* ... Styling for GitHub/LinkedIn icons ... */ }
-
-/* --- Navigation Styles --- */
-/* Styles for the sticky navigation bar */
+/* === NAVIGATION BAR === */
 .main-nav {
-    background-color: var(--secondary-bg-dark);
-    /* ... sticky positioning, shadow etc ... */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(31, 31, 56, 0.85); /* Semi-transparent dark */
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 0;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 body.light-theme .main-nav {
-    background-color: var(--secondary-bg-light);
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent light */
+    border-color: var(--border-color);
 }
+.main-nav .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 15px; display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-size: 1.5rem; font-weight: 600; color: var(--heading-color); text-decoration: none; transition: color var(--transition-speed) ease; }
+.nav-brand:hover { color: var(--accent-1); }
+.nav-links { list-style: none; display: flex; margin: 0; padding: 0; }
+.nav-links li { margin-left: 2.5rem; }
+.nav-links a { color: var(--text-muted); font-weight: 500; padding: 0.75rem 0; border-bottom: 3px solid transparent; transition: color var(--transition-speed) ease, border-bottom-color var(--transition-speed) ease; }
+.nav-links a:hover, .nav-links a.active { color: var(--accent-1); border-bottom-color: var(--accent-1); }
 
-/* Styling for nav links */
-.main-nav a {
-    color: var(--text-muted-dark);
-    /* ... other styles ... */
-    border-bottom: 2px solid transparent; /* Base state for active indicator */
-    transition: color 0.3s ease-in-out, border-bottom-color 0.3s ease-in-out;
+/* === HERO SECTION === */
+.hero {
+    background-color: var(--secondary-bg); /* Solid section background */
+    padding: 7rem 1.5rem;
+    text-align: left;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
-body.light-theme .main-nav a {
-     color: var(--text-muted-light);
-}
+.hero h1 { color: var(--heading-color); font-size: 3.8rem; font-weight: 600; }
+.hero-subtitle { color: var(--text-muted); font-size: 1.6rem; margin-bottom: 1.5rem;}
+.hero p.intro-text { color: var(--text-color); font-size: 1.15rem; line-height: 1.8; max-width: 650px; margin-bottom: 3rem; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; }
 
-/* Style for the link corresponding to the CURRENT page (using .active class added in HTML) */
-/* Also apply same style on hover */
-.main-nav a:hover,
-.main-nav a.active {
-    color: var(--accent-color-dark);
-    border-bottom-color: var(--accent-color-dark); /* Show underline */
-}
-body.light-theme .main-nav a:hover,
-body.light-theme .main-nav a.active {
-    color: var(--accent-color-light);
-     border-bottom-color: var(--accent-color-light);
-}
+/* === BUTTON STYLES === */
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem; font-size: 1rem; font-weight: 600; text-align: center; vertical-align: middle; cursor: pointer; border: 2px solid transparent; border-radius: 0.375rem; transition: all var(--transition-speed) ease; text-decoration: none; }
+.btn i { line-height: 1; }
 
-/* --- Section Styling --- */
-/* General styles for content sections */
+.btn-primary { color: #000000; background-color: var(--accent-1); border-color: var(--accent-1); box-shadow: 0 3px 6px rgba(0, 255, 255, 0.2); }
+.btn-primary:hover { color: #000000; background-color: var(--accent-1-hover); border-color: var(--accent-1-hover); transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0, 255, 255, 0.3); }
+
+.btn-secondary { color: var(--accent-2); background-color: transparent; border-color: var(--accent-2); }
+.btn-secondary:hover { color: #fff; background-color: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 3px 6px rgba(255, 0, 255, 0.2); }
+
+/* Hero Social Links */
+.hero-social-links { display: flex; gap: 1.5rem; }
+.hero-social-links a { font-size: 1.7rem; color: var(--text-muted); transition: color var(--transition-speed) ease, transform 0.2s ease; }
+.hero-social-links a:hover { color: var(--accent-1); transform: scale(1.1); }
+
+/* === SECTION STYLING === */
 section {
-    padding: 5rem 2rem;
-    border-bottom: 1px solid var(--border-color-dark); /* Separator line */
-    transition: border-bottom-color 0.3s ease, background-color 0.3s ease;
+    padding: 6rem 0; /* Vertical padding */
+    background-color: var(--secondary-bg); /* Default solid section bg */
+    position: relative; z-index: 1;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
-body.light-theme section {
-    border-bottom-color: var(--border-color-light);
+section:last-of-type { border-bottom: none; }
+section.bg-primary { background-color: var(--primary-bg); } /* Class for alternating */
+section.bg-secondary { background-color: var(--secondary-bg); }
+
+section h2 { /* Section Title */
+    text-align: center; margin-bottom: 3.5rem; position: relative; padding-bottom: 1rem;
+}
+section h2::after { /* Underline */
+    content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background-color: var(--accent-1); border-radius: 2px; transition: background-color var(--transition-speed) ease;
 }
 
-/* Specific background colors per section */
-#welcome { background-color: var(--primary-bg-dark); } /* Added welcome section style */
-#projects { background-color: var(--primary-bg-dark); }
-#about { background-color: var(--secondary-bg-dark); }
-#contact { background-color: var(--primary-bg-dark); border-bottom: none; } /* No border on last section */
+/* === PROJECTS PAGE === */
+.project-categories { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 3rem; }
+.category-button { padding: 0.7rem 1.6rem; border: 1px solid var(--border-color); border-radius: 25px; color: var(--text-muted); background: transparent; cursor: pointer; font-weight: 500; transition: all var(--transition-speed) ease; }
+.category-button.active { background-color: var(--accent-1); color: #000; border-color: var(--accent-1); }
+.category-button:not(.active):hover { background-color: var(--card-bg); color: var(--text-color); border-color: var(--card-bg); }
 
-body.light-theme #welcome { background-color: var(--primary-bg-light); }
-body.light-theme #projects { background-color: var(--primary-bg-light); }
-body.light-theme #about { background-color: var(--secondary-bg-light); }
-body.light-theme #contact { background-color: var(--primary-bg-light); }
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2rem; }
 
+.project-card { background-color: var(--card-bg); border-radius: 8px; box-shadow: 0 6px 15px var(--shadow-color); transition: all var(--transition-speed) ease; overflow: hidden; display: flex; flex-direction: column; border: 1px solid transparent; }
+.project-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px var(--shadow-hover-color); border-color: var(--accent-1); }
 
-/* Styling for section headings (H2) */
-section h2 {
-    /* ... font size, alignment ... */
-    position: relative; /* Needed for the underline pseudo-element */
-    padding-bottom: 0.5rem;
+.project-image, .project-image-placeholder { height: 190px; width: 100%; display: flex; justify-content: center; align-items: center; object-fit: cover; background-color: var(--primary-bg); color: var(--text-muted); font-size: 0.9rem; transition: background-color var(--transition-speed) ease; }
+
+.project-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.project-card h3 { font-size: 1.4rem; color: var(--heading-color); margin-bottom: 0.75rem; }
+
+.project-card .view-project-link { /* Link styled as button */
+    padding: 0.6rem 1.2rem; font-size: 0.9rem; align-self: flex-start; margin-top: 1rem;
+    /* Apply btn and btn-primary styles */
+    display: inline-flex; align-items: center; gap: 0.5rem; text-align: center; vertical-align: middle; cursor: pointer; border: 2px solid transparent; border-radius: 0.375rem; transition: all var(--transition-speed) ease; text-decoration: none; font-weight: 600;
+    color: #000; background-color: var(--accent-1); border-color: var(--accent-1);
 }
-/* Added an animated underline effect below section titles */
-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background-color: var(--accent-color-dark);
-    transition: background-color 0.3s ease;
-}
-body.light-theme section h2::after {
-    background-color: var(--accent-color-light);
+.project-card .view-project-link:hover {
+    color: #000; background-color: var(--accent-1-hover); border-color: var(--accent-1-hover); transform: scale(1.05);
 }
 
+/* === ABOUT PAGE === */
+.about-content { max-width: 800px; margin: 0 auto; }
+.about-content h3 { margin-top: 3rem; margin-bottom: 1.5rem; color: var(--accent-1); border-bottom: none; }
+.skills-list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.skills-list li { background-color: var(--card-bg); padding: 0.6rem 1.2rem; border-radius: 6px; font-size: 0.9rem; border: 1px solid var(--border-color); transition: all var(--transition-speed) ease; color: var(--text-muted); font-weight: 500; }
+.skills-list li:hover { background-color: var(--accent-1); color: #000; border-color: var(--accent-1); transform: translateY(-2px); }
+.skills-list li strong { color: var(--text-color); }
 
-/* --- Projects Section Styles --- */
-/* Styles for the category filter buttons */
-.project-categories { /* ... */ }
-.category-button { /* ... Base button styles ... */ }
-.category-button.active { /* ... Active filter button style ... */ }
-.category-button:not(.active):hover { /* ... Hover for non-active filter buttons ... */ }
+/* === CONTACT PAGE === */
+#contact .container > p { max-width: 700px; margin: 0 auto 3rem auto; text-align: center; font-size: 1.1rem; color: var(--text-muted); }
+.contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.contact-option { background-color: var(--card-bg); padding: 2.5rem; border-radius: 8px; box-shadow: 0 6px 15px var(--shadow-color); text-align: center; border: 1px solid var(--border-color); transition: all var(--transition-speed) ease; }
+.contact-option:hover { transform: translateY(-5px); box-shadow: 0 10px 20px var(--shadow-hover-color); border-color: var(--accent-1); }
+.contact-icon { font-size: 2.5rem; color: var(--accent-1); margin-bottom: 1.5rem; }
+.contact-option h3 { color: var(--heading-color); margin-bottom: 0.5rem; }
+.contact-option p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem; }
+.contact-link-button { /* Link styled as button */
+    /* Apply btn and btn-secondary styles */
+    display: inline-flex; align-items: center; gap: 0.5rem; text-align: center; vertical-align: middle; cursor: pointer; border-radius: 0.375rem; transition: all var(--transition-speed) ease; text-decoration: none; font-weight: 600;
+    padding: 0.7rem 1.4rem; font-size: 0.9rem;
+    color: var(--accent-2); background-color: transparent; border: 2px solid var(--accent-2);
+}
+.contact-link-button:hover { color: #fff; background-color: var(--accent-2); border-color: var(--accent-2); }
 
-/* Styles for the grid containing project cards */
-.projects-grid {
-    display: grid; /* Using CSS Grid for layout */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-    gap: 2.5rem;
-    /* ... other layout styles ... */
-}
+/* === FOOTER === */
+.main-footer { background-color: var(--primary-bg); color: var(--text-muted); text-align: center; padding: 2.5rem 1rem; margin-top: 3rem; font-size: 0.9rem; border-top: 1px solid var(--border-color); transition: all var(--transition-speed) ease; }
 
-/* Styles for individual project cards */
-.project-card {
-    background-color: var(--card-bg-dark);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease;
-    overflow: hidden; /* Keep image corners rounded */
-    display: flex; /* Use flexbox for vertical layout */
-    flex-direction: column;
-}
-body.light-theme .project-card {
-    background-color: var(--card-bg-light);
-}
-.project-card:hover {
-    transform: translateY(-8px); /* Lift effect on hover */
-    box-shadow: 0 10px 20px var(--shadow-hover-color);
-}
+/* === BACK TO TOP & THEME TOGGLE BUTTONS === */
+.back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--accent-1); color: #000; width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; text-decoration: none; box-shadow: 0 3px 8px var(--shadow-color); opacity: 0; visibility: hidden; transition: all 0.4s ease; z-index: 999; border: none; }
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { background-color: var(--accent-1-hover); transform: scale(1.1); box-shadow: 0 5px 12px var(--shadow-hover-color); }
 
-/* Style for the actual project image (when I add it) */
-.project-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover; /* Ensures image covers the area well */
-    display: block;
-}
-/* Style for the placeholder div */
-.project-image-placeholder {
-    height: 180px;
-    background-color: #444; /* Placeholder color */
-    /* ... centering styles ... */
-    transition: background-color 0.3s ease;
-}
-body.light-theme .project-image-placeholder {
-     background-color: #e0e0e0; /* Lighter placeholder in light mode */
-     color: #777;
-}
+.theme-toggle { position: fixed; top: 20px; right: 20px; background-color: var(--card-bg); color: var(--text-muted); border: 1px solid var(--border-color); border-radius: 50%; width: 40px; height: 40px; font-size: 1.1rem; cursor: pointer; z-index: 1001; display: flex; justify-content: center; align-items: center; box-shadow: 0 2px 5px var(--shadow-color); transition: all var(--transition-speed) ease; }
+.theme-toggle:hover { color: var(--accent-1); transform: scale(1.1) rotate(15deg); }
 
-/* Style for the content area below the image */
-.project-content {
-    padding: 1.5rem;
-    flex-grow: 1; /* Allows this section to grow and push button down */
-    display: flex;
-    flex-direction: column;
+/* === RESPONSIVE === */
+@media (max-width: 992px) { /* Tablet */
+    .nav-links li { margin-left: 1.5rem; }
+    .hero h1 { font-size: 3rem; }
 }
-
-.project-card h3 { /* ... */ }
-.project-card p { /* ... */ flex-grow: 1; /* Pushes button down */ } /* Use text muted color */
-.project-card a { /* ... Styling for 'View Project' button ... */ }
-
-
-/* --- About Section Styles --- */
-/* Layout for the content within the About section */
-.about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left; /* Overriding centered section text */
-}
-.about-content h3 { /* Styling for subheadings like Skills */
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--border-color-dark);
-    padding-bottom: 0.5rem;
-    transition: border-bottom-color 0.3s ease;
-}
-body.light-theme .about-content h3 {
-    border-bottom-color: var(--border-color-light);
-}
-
-/* Styling for the skills list */
-.skills-list {
-    list-style: none;
-    padding: 0;
-    display: flex; /* Arrange skills horizontally */
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 0.8rem;
-}
-.skills-list li {
-    background-color: var(--card-bg-dark); /* Use card background for pills */
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-}
-body.light-theme .skills-list li {
-    background-color: #e0e0e0; /* Lighter pills in light mode */
-}
-
-/* --- Contact Section Styles --- */
-/* Added styles for the new contact methods layout */
-.contact-methods {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 2rem;
-    max-width: 900px;
-    margin: 3rem auto 0 auto;
-    text-align: center;
-}
-.contact-option {
-    background-color: var(--card-bg-dark);
-    padding: 2rem 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px var(--shadow-color);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-body.light-theme .contact-option {
-    background-color: var(--card-bg-light);
-}
-.contact-option h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-.contact-icon {
-    font-size: 2rem;
-    color: var(--accent-color-dark);
-    margin-bottom: 1rem;
-    display: block;
-    transition: color 0.3s ease;
-}
-body.light-theme .contact-icon {
-    color: var(--accent-color-light);
-}
-.contact-option p {
-    color: var(--text-muted-dark);
-    margin-bottom: 1.5rem;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-body.light-theme .contact-option p {
-    color: var(--text-muted-light);
-}
-.contact-link-button { /* Styling for links within contact options */
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--accent-color-dark);
-    color: var(--primary-bg-dark);
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-body.light-theme .contact-link-button {
-     background-color: var(--accent-color-light);
-     color: var(--primary-bg-light);
-}
-.contact-link-button:hover {
-    background-color: var(--accent-hover-dark);
-    color: #ffffff;
-}
-body.light-theme .contact-link-button:hover {
-     background-color: var(--accent-hover-light);
-     color: #ffffff;
-}
-
-/* Optional: Basic styles if I uncomment the contact form */
-.contact-form-container { max-width: 600px; margin: 3rem auto 0 auto; text-align: left; }
-.form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid var(--border-color-dark);
-    border-radius: 4px;
-    background-color: var(--secondary-bg-dark);
-    color: var(--text-color-dark);
-    font-family: inherit;
-    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-}
-body.light-theme .form-group input, body.light-theme .form-group textarea {
-    border-color: var(--border-color-light);
-    background-color: var(--secondary-bg-light);
-    color: var(--text-color-light);
-}
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-color-dark); }
-body.light-theme .form-group input:focus, body.light-theme .form-group textarea:focus { border-color: var(--accent-color-light); }
-
-
-/* --- Footer Styles --- */
-/* Styles for the consistent footer */
-.main-footer {
-    background-color: var(--secondary-bg-dark);
-    color: var(--text-muted-dark);
-    /* ... other footer styles ... */
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-body.light-theme .main-footer {
-    background-color: var(--secondary-bg-light);
-    color: var(--text-muted-light);
-}
-
-/* --- Back to Top Button --- */
-/* Styles for the button that appears on scroll */
-.back-to-top {
-    position: fixed; /* Stays in view */
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--accent-color-dark);
-    color: var(--primary-bg-dark); /* Dark icon on light button */
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex; /* Center icon */
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    text-decoration: none;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    opacity: 0; /* Hidden by default */
-    visibility: hidden; /* Hidden by default */
-    /* Smooth transition for appearing/disappearing */
-    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.3s ease, transform 0.2s ease;
-    z-index: 999;
-}
-/* Style for light mode */
-body.light-theme .back-to-top {
-     background-color: var(--accent-color-light);
-     color: var(--primary-bg-light);
-}
-/* Class added by JS when button should be visible */
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-.back-to-top:hover {
-    background-color: var(--accent-hover-dark);
-    transform: scale(1.1); /* Zoom effect on hover */
-}
-body.light-theme .back-to-top:hover {
-     background-color: var(--accent-hover-light);
-}
-
-/* --- Optional Fade-in Animation --- */
-/* Initial state for elements I want to fade in on scroll */
-.fade-in-section {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-/* State when element becomes visible (class added by JS observer) */
-.fade-in-section.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Responsive Adjustments --- */
-/* Media queries to adjust layout for smaller screens */
-@media (max-width: 768px) {
-    /* Adjustments for tablet size */
-    /* ... Hero text sizes, section padding, project grid columns ... */
-    .main-nav ul {
-        flex-direction: column; /* Stack nav links vertically */
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .main-nav li { margin: 0; } /* Remove horizontal margin */
-    .contact-methods { grid-template-columns: 1fr; } /* Stack contact options */
-    .theme-toggle { /* Make buttons slightly smaller */ width: 40px; height: 40px; /* ... */ }
-    .back-to-top { /* Make buttons slightly smaller */ width: 40px; height: 40px; /* ... */ }
-}
-
-@media (max-width: 480px) {
-    /* Adjustments for smaller mobile phones */
-    /* ... Hero text sizes, padding, button sizes ... */
+@media (max-width: 768px) { /* Mobile */
+    h1 { font-size: 2.5rem; } h2 { font-size: 2rem; }
+    section { padding: 4rem 0; }
+    .container { padding: 0 20px; } /* More padding on mobile */
+    .hero { padding: 5rem 1rem; text-align: center; }
+    .hero p.intro-text { max-width: 95%; }
+    .hero-actions { justify-content: center; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-methods { grid-template-columns: 1fr; }
+    .main-nav .nav-container { justify-content: space-between; } /* Keep space for potential toggle */
+    .nav-links { display: none; } /* Hide links for now */
+    .theme-toggle, .back-to-top { width: 38px; height: 38px; font-size: 1rem; bottom: 15px; right: 15px; }
+    .theme-toggle { top: 15px; bottom: auto; }
 }
