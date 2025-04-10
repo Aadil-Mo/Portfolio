@@ -3,148 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Aadil Mohamed</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Projects - Aadil Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> </head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <button id="theme-toggle" class="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
 
     <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+        <div class="nav-container container">
+            <a href="index.html" class="nav-brand">Aadil Mohamed</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li> <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <main>
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p style="text-align: center; max-width: 800px; margin: -2rem auto 2rem auto;">Here are some of the projects I've worked on while learning front-end development. Filter by category below.</p>
+        <section id="projects" class="bg-secondary"> <div class="container"> <h2>My Projects</h2>
+                <p class="muted" style="text-align: center; max-width: 800px; margin: -2rem auto 3rem auto;">
+                    Here are some projects I've built while learning HTML, CSS, and JavaScript. Use the filters to navigate through different categories.
+                </p>
 
-            <div class="project-categories">
-                <button class="category-button active" data-category="html-css">HTML & CSS Fundamentals</button>
-                <button class="category-button" data-category="javascript">JavaScript Basic Projects</button>
-                <button class="category-button" data-category="javascriptadv">JavaScript Advanced Projects</button>
-            </div>
+                <div class="project-categories">
+                    <button class="category-button active" data-category="html-css">HTML & CSS Fundamentals</button>
+                    <button class="category-button" data-category="javascript">JavaScript Basic Projects</button>
+                    <button class="category-button" data-category="javascriptadv">JavaScript Advanced Projects</button>
+                </div>
 
-            <div class="projects-grid" data-category="html-css">
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Cat Info Page Preview</span></div>
-                    <div class="project-content"><h3>Cat Information Page</h3><p>My very first pure HTML project! This page explores basic HTML structure...</p><a href="https://aadil-mo.github.io/test1/" target="_blank">View Project</a></div>
+                <div class="projects-grid" data-category="html-css">
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Cat Information Page</h3>
+                            <a href="https://aadil-mo.github.io/test1/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Camper Cafe Menu</h3>
+                            <a href="https://aadil-mo.github.io/test2/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Basic CSS Styling Practice</h3>
+                            <a href="https://aadil-mo.github.io/test-3/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>CSS Layout Techniques</h3>
+                            <a href="https://aadil-mo.github.io/test-4/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Landing Page Project</h3>
+                            <a href="https://aadil-mo.github.io/milestone/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>CSS Grid Layout Exploration</h3>
+                             <a href="https://aadil-mo.github.io/test-6/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                         <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                             <h3>CSS Flexbox Layout Practice</h3>
+                             <a href="https://aadil-mo.github.io/test-7/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                             <h3>Combining CSS Grid and Flexbox</h3>
+                             <a href="https://aadil-mo.github.io/test-8/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                         </div>
+                    </div>
+                    <div class="project project-card">
+                         <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Responsive Navigation Bar</h3>
+                            <a href="https://aadil-mo.github.io/test-9/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                         <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                             <h3>Complex Layout Implementation</h3>
+                            <a href="https://aadil-mo.github.io/test-10/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                     <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Visually Polished Webpage</h3>
+                            <a href="https://aadil-mo.github.io/test-12/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Project using CSS Framework</h3>
+                             <a href="https://aadil-mo.github.io/test-13/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Form Design and Styling</h3>
+                             <a href="https://aadil-mo.github.io/test-15/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                         </div>
+                    </div>
+                     <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                             <h3>Responsive Web Design Practice</h3>
+                            <a href="https://aadil-mo.github.io/test-16/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Advanced CSS Techniques Exploration</h3>
+                            <a href="https://aadil-mo.github.io/test-17/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                         </div>
+                    </div>
                 </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Camper Cafe Menu Preview</span></div>
-                    <div class="project-content"><h3>Camper Cafe Menu</h3><p>My second project, and the first time I incorporated CSS!...</p><a href="https://aadil-mo.github.io/test2/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>CSS Styling Practice Preview</span></div>
-                    <div class="project-content"><h3>Basic CSS Styling Practice</h3><p>This project was an exercise in learning how to apply CSS to structure HTML content...</p><a href="https://aadil-mo.github.io/test-3/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>CSS Layout Techniques Preview</span></div>
-                    <div class="project-content"><h3>CSS Layout Techniques</h3><p>This project focused on experimenting with different CSS layout properties...</p><a href="https://aadil-mo.github.io/test-4/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Landing Page Preview</span></div>
-                    <div class="project-content"><h3>Landing Page Project</h3><p>This project involved creating a multi-section landing page...</p><a href="https://aadil-mo.github.io/milestone/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>CSS Grid Exploration Preview</span></div>
-                    <div class="project-content"><h3>CSS Grid Layout Exploration</h3><p>This project focused on learning and implementing CSS Grid...</p><a href="https://aadil-mo.github.io/test-6/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>CSS Flexbox Practice Preview</span></div>
-                    <div class="project-content"><h3>CSS Flexbox Layout Practice</h3><p>This project highlighted the use of CSS Flexbox...</p><a href="https://aadil-mo.github.io/test-7/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Grid & Flexbox Combo Preview</span></div>
-                    <div class="project-content"><h3>Combining CSS Grid and Flexbox</h3><p>This project explored how to effectively use both CSS Grid and Flexbox...</p><a href="https://aadil-mo.github.io/test-8/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Responsive Nav Bar Preview</span></div>
-                    <div class="project-content"><h3>Responsive Navigation Bar</h3><p>This project focused on creating a navigation bar that adapts...</p><a href="https://aadil-mo.github.io/test-9/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Complex Layout Preview</span></div>
-                    <div class="project-content"><h3>Complex Layout Implementation</h3><p>This project involved structuring a more intricate webpage layout...</p><a href="https://aadil-mo.github.io/test-10/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Visually Polished Page Preview</span></div>
-                    <div class="project-content"><h3>Visually Polished Webpage</h3><p>This project focused on creating a more aesthetically pleasing webpage...</p><a href="https://aadil-mo.github.io/test-12/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>CSS Framework Project Preview</span></div>
-                    <div class="project-content"><h3>Project using CSS Framework</h3><p>This project utilized a CSS framework to speed up development...</p><a href="https://aadil-mo.github.io/test-13/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Form Design Preview</span></div>
-                    <div class="project-content"><h3>Form Design and Styling</h3><p>This project focused on the principles of effective form design...</p><a href="https://aadil-mo.github.io/test-15/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>RWD Practice Preview</span></div>
-                    <div class="project-content"><h3>Responsive Web Design Practice</h3><p>This project specifically focused on implementing responsive web design techniques...</p><a href="https://aadil-mo.github.io/test-16/" target="_blank">View Project</a></div>
-                </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Advanced CSS Preview</span></div>
-                    <div class="project-content"><h3>Advanced CSS Techniques Exploration</h3><p>This project involved experimenting with more advanced CSS concepts...</p><a href="https://aadil-mo.github.io/test-17/" target="_blank">View Project</a></div>
-                </div>
-            </div>
 
-            <div class="projects-grid" data-category="javascript" style="display: none;">
-                 <div class="project project-card">
-                     <div class="project-image-placeholder"><span>CSS Transitions Preview</span></div>
-                     <div class="project-content"><h3>CSS Transitions and Animations</h3><p>This project explored adding dynamic visual effects using CSS, sometimes triggered or controlled by basic JavaScript.</p><a href="https://aadil-mo.github.io/test-11/" target="_blank">View Project</a></div>
-                 </div>
-                 <div class="project project-card">
-                     <div class="project-image-placeholder"><span>Milestone 2 Preview</span></div>
-                     <div class="project-content"><h3>Milestone Project Two</h3><p>This project represents a significant step forward, incorporating more complex CSS and potentially introductory JavaScript concepts.</p><a href="https://aadil-mo.github.io/milestone-2/" target="_blank">View Project</a></div>
-                 </div>
-                <div class="project project-card">
-                     <div class="project-image-placeholder"><span>To-Do List Preview</span></div>
-                     <div class="project-content"><h3>Interactive To-Do List</h3><p>A functional application allowing users to add, remove, and mark tasks as complete using JavaScript.</p><a href="https://aadil-mo.github.io/to-do-list/" target="_blank">View Project</a></div>
-                 </div>
-                 <div class="project project-card">
-                     <div class="project-image-placeholder"><span>Product Landing Page Preview</span></div>
-                     <div class="project-content"><h3>Product Landing Page (JS Enhanced)</h3><p>A landing page design possibly featuring JavaScript for elements like image sliders, form validation, or dynamic content.</p><a href="https://aadil-mo.github.io/product-landing-page/" target="_blank">View Project</a></div>
-                 </div>
-                 <div class="project project-card">
-                     <div class="project-image-placeholder"><span>Blog Layout Preview</span></div>
-                     <div class="project-content"><h3>Personal Blog Layout Test</h3><p>A test layout for a personal blog structure, potentially incorporating JavaScript for interactive features.</p><a href="https://aadil-mo.github.io/personal-blog-test/" target="_blank">View Project</a></div>
-                 </div>
-                 <div class="project project-card">
-                    <div class="project-image-placeholder"><span>FAQ Accordion Preview</span></div>
-                    <div class="project-content"><h3>FAQ Accordion</h3><p>An interactive FAQ section where answers can be shown or hidden by clicking questions, implemented with JavaScript.</p><a href="https://aadil-mo.github.io/FAQ-test/" target="_blank">View Project</a></div>
+                <div class="projects-grid" data-category="javascript" style="display: none;">
+                     <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                             <h3>CSS Transitions and Animations</h3>
+                             <a href="https://aadil-mo.github.io/test-11/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Milestone Project Two</h3>
+                             <a href="https://aadil-mo.github.io/milestone-2/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Interactive To-Do List</h3>
+                            <a href="https://aadil-mo.github.io/to-do-list/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Product Landing Page (JS Enhanced)</h3>
+                            <a href="https://aadil-mo.github.io/product-landing-page/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Personal Blog Layout Test</h3>
+                            <a href="https://aadil-mo.github.io/personal-blog-test/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                         </div>
+                    </div>
+                    <div class="project project-card">
+                         <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>FAQ Accordion</h3>
+                             <a href="https://aadil-mo.github.io/FAQ-test/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                         <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                             <h3>Simple Calculator</h3>
+                            <a href="https://aadil-mo.github.io/simple-calc/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                         <div class="project-content">
+                            <h3>Popup Window Demo</h3>
+                            <a href="https://aadil-mo.github.io/popup-window/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project project-card">
+                        <div class="project-image-placeholder"><span>Project Preview</span></div>
+                        <div class="project-content">
+                            <h3>Smart Home Interface Concept</h3>
+                             <a href="https://aadil-mo.github.io/smart-home-test/" target="_blank" class="view-project-link btn btn-primary">View Project</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Simple Calculator Preview</span></div>
-                    <div class="project-content"><h3>Simple Calculator</h3><p>A basic calculator built with JavaScript to perform arithmetic operations through a web interface.</p><a href="https://aadil-mo.github.io/simple-calc/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Popup Window Preview</span></div>
-                    <div class="project-content"><h3>Popup Window Demo</h3><p>Demonstrates the creation and handling of modal or popup windows using JavaScript.</p><a href="https://aadil-mo.github.io/popup-window/" target="_blank">View Project</a></div>
-                </div>
-                <div class="project project-card">
-                    <div class="project-image-placeholder"><span>Smart Home UI Preview</span></div>
-                    <div class="project-content"><h3>Smart Home Interface Concept</h3><p>A conceptual test interface for smart home controls, likely using JavaScript for user interactions.</p><a href="https://aadil-mo.github.io/smart-home-test/" target="_blank">View Project</a></div>
-                </div>
-            </div>
 
-             <div class="projects-grid" data-category="javascriptadv" style="display: none;">
-                 <p>More advanced JavaScript projects coming soon!</p>
+                 <div class="projects-grid" data-category="javascriptadv" style="display: none;">
+                    <p class="muted" style="text-align: center; grid-column: 1 / -1;">More advanced JavaScript projects coming soon!</p>
                  </div>
-        </section>
+
+            </div> </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; <span id="current-year"></span> Aadil Mohamed | Aspiring Web Developer</p>
+        <div class="container">
+             <p>&copy; <span id="current-year"></span> Aadil Mohamed</p>
+        </div>
     </footer>
 
     <a href="#" id="back-to-top" class="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
 
     <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>
