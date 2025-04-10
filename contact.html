@@ -3,65 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Aadil Mohamed</title> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Contact - Aadil Mohamed</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> </head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <button id="theme-toggle" class="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
 
     <nav class="main-nav">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
+        <div class="nav-container container">
+            <a href="index.html" class="nav-brand">Aadil Mohamed</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li> </ul>
+        </div>
     </nav>
 
     <main>
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <p>
-                I'm excited about opportunities in web development and always open to connecting with others in the field. Whether you have a question, a project idea, or just want to say hi, feel free to reach out using the methods below.
-            </p>
-             <div class="contact-methods">
-                 <div class="contact-option">
-                     <i class="fas fa-envelope contact-icon"></i>
-                     <h3>Email</h3>
-                     <p>The best way to reach me formally.</p>
-                     <a href="mailto:aadilmohamed7865@gmail.com" class="contact-link-button">aadilmohamed7865@gmail.com</a>
-                 </div>
-                 <div class="contact-option">
-                     <i class="fas fa-phone contact-icon"></i>
-                     <h3>Phone</h3>
-                     <p>Available for calls during business hours.</p>
-                     <a href="tel:+447493254083" class="contact-link-button">07493 254083</a>
-                 </div>
-                 <div class="contact-option">
-                     <i class="fab fa-linkedin contact-icon"></i>
-                     <h3>LinkedIn</h3>
-                     <p>Connect with me professionally.</p>
-                     <a href="#" target="_blank" class="contact-link-button">View Profile</a>
-                 </div>
-                 <div class="contact-option">
-                     <i class="fab fa-github contact-icon"></i>
-                     <h3>GitHub</h3>
-                     <p>See my code and contributions.</p>
-                      <a href="#" target="_blank" class="contact-link-button">View Profile</a>
-                 </div>
-            </div>
+        <section id="contact" class="bg-secondary"> <div class="container"> <h2>Get In Touch</h2>
+                <p class="muted">
+                    I'm excited about opportunities in web development and always open to connecting. Whether you have a question, a project idea, or just want to say hi, feel free to reach out using your preferred method below.
+                </p>
+                 <div class="contact-methods">
+                     <div class="contact-option">
+                         <i class="fas fa-envelope contact-icon"></i>
+                         <h3>Email</h3>
+                         <p class="muted">The best way for formal inquiries or detailed questions.</p>
+                         <a href="mailto:aadilmohamed7865@gmail.com" class="contact-link-button">Send Email</a>
+                     </div>
+                     <div class="contact-option">
+                         <i class="fas fa-phone contact-icon"></i>
+                         <h3>Phone</h3>
+                         <p class="muted">Available for calls during UK business hours.</p>
+                         <a href="tel:+447493254083" class="contact-link-button">Call Me</a>
+                     </div>
+                     <div class="contact-option">
+                         <i class="fab fa-linkedin contact-icon"></i>
+                         <h3>LinkedIn</h3>
+                         <p class="muted">Connect with me professionally and see my profile.</p>
+                          <a href="#" target="_blank" class="contact-link-button">View LinkedIn</a>
+                     </div>
+                     <div class="contact-option">
+                         <i class="fab fa-github contact-icon"></i>
+                         <h3>GitHub</h3>
+                         <p class="muted">See my code, projects, and contributions.</p>
+                          <a href="#" target="_blank" class="contact-link-button">View GitHub</a>
+                     </div>
+                </div>
 
-             </section>
+                 </div> </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; <span id="current-year"></span> Aadil Mohamed | Aspiring Web Developer</p>
+        <div class="container">
+             <p>&copy; <span id="current-year"></span> Aadil Mohamed</p>
+        </div>
     </footer>
 
     <a href="#" id="back-to-top" class="back-to-top" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
 
     <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
-    <script src="script.js"></script> </body>
+    <script src="script.js"></script>
+</body>
 </html>
